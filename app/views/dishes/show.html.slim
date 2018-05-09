@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Date:
+  = @dish.date
+p
+  strong Picture:
+  = @dish.picture
+p
+  strong Name:
+  = @dish.name
+p
+  strong Description:
+  = @dish.description
+
+=> link_to 'Edit', edit_dish_path(@dish)
+'|
+=< link_to 'Back', dishes_path
