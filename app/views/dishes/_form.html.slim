@@ -3,10 +3,9 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :date
     = f.input :picture
-    = f.input :name
     = f.input :description
+    = f.input :date
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn-primary'

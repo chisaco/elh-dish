@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title
+      | Elh-Dish
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    link[rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"]
+    link[rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"]
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    nav.navbar.navbar-default.navbar-fixed-top[role="navigation"]
+      .container
+        .navbar-header
+          button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand[href="/"]
+            | EAT LIVES HOTEL's Dish
+        .collapse.navbar-collapse
+          p.navbar-text.pull-right
+            - if user_signed_in?
+              |  Logged in as 
+              strong
+                = current_user.email
+              | . 
+              = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
+              |  | 
+              = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'
+            - else
+              = link_to "Sign up", new_user_registration_path, class: 'navbar-link'
+              |  | 
+              = link_to "Login", new_user_session_path, class: 'navbar-link'
+          ul.nav.navbar-nav
+            li.active
+              a[href="/dishes"]
+                | Dishes
+    - if notice
+      p.alert.alert-success
+        = notice
+    - if alert
+      p.alert.alert-danger
+        = alert
+    .container
+      = yield
+    footer
+      .container
+        |  EAT LIVES HOTEL's Dish 2018 
+    script[src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"]

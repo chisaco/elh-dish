@@ -5,7 +5,6 @@ table
     tr
       th Date
       th Picture
-      th Name
       th Description
       th
       th
@@ -15,8 +14,7 @@ table
     - @dishes.each do |dish|
       tr
         td = dish.date
-        td = dish.picture
-        td = dish.name
+        td = image_tag dish.picture_url(:large),  width: '100px'
         td = dish.description
         td = link_to 'Show', dish
         td = link_to 'Edit', edit_dish_path(dish)

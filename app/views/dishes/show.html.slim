@@ -1,14 +1,11 @@
-p#notice = notice
+
 
 p
   strong Date:
   = @dish.date
 p
   strong Picture:
-  = @dish.picture
-p
-  strong Name:
-  = @dish.name
+  = image_tag @dish.picture_url(:large),  width: '100px'
 p
   strong Description:
   = @dish.description
