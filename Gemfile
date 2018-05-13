@@ -23,6 +23,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views'
 
+gem 'sendgrid-ruby'
+
 # soft delete
 gem 'paranoia'
 
