@@ -26,7 +26,7 @@ html
             - if user_signed_in?
               |  Logged in as 
               strong
-                = current_user.email
+                = current_user.name
               | . 
               = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
               |  | 
@@ -49,5 +49,7 @@ html
       = yield
     footer
       .container
-        |  EAT LIVES HOTEL's Dish 2018 
+        .text-muted
+          | EAT LIVES HOTEL's Dish 2018
+    script[src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"]
     script[src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"]

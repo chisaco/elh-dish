@@ -1,10 +1,11 @@
 class DishesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
 
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.all
+    @dishes = Dish.all.order(date: :desc)
   end
 
   # GET /dishes/1

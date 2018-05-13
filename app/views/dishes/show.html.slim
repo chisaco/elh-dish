@@ -1,15 +1,17 @@
-
-
+p
+  strong Description:
+  = simple_format(@dish.description)
 p
   strong Date:
   = @dish.date
 p
   strong Picture:
-  = image_tag @dish.picture_url(:large),  width: '100px'
-p
-  strong Description:
-  = @dish.description
+  = image_tag @dish.picture_url(:large)
 
-=> link_to 'Edit', edit_dish_path(@dish)
-'|
-=< link_to 'Back', dishes_path
+
+
+= link_to 'Edit', edit_dish_path(@dish), class: 'action_link'
+= link_to 'Destroy', @dish, data: {confirm: 'Are you sure?'}, method: :delete, class: 'action_link'
+br
+br
+= link_to 'Back', dishes_path, class: 'action_link'

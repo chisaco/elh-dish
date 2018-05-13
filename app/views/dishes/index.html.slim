@@ -1,25 +1,14 @@
-h1 Listing dishes
+h1 Latest Dishes
 
-table
-  thead
-    tr
-      th Date
-      th Picture
-      th Description
-      th
-      th
-      th
+.menu
+  = link_to '今日のまかないをアップする', new_dish_path
 
-  tbody
-    - @dishes.each do |dish|
-      tr
-        td = dish.date
-        td = image_tag dish.picture_url(:large),  width: '100px'
-        td = dish.description
-        td = link_to 'Show', dish
-        td = link_to 'Edit', edit_dish_path(dish)
-        td = link_to 'Destroy', dish, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Dish', new_dish_path
+.row
+  - @dishes.each do |dish|
+    .col-sm-3
+      .panel.panel-info
+        .panel-heading = l(dish.date, format: :long)
+        .panel-body
+          .picture= image_tag dish.picture_url(:large),  width: '200px'
+        .panel-footer
+          = link_to 'Show', dish, class: 'action_link'
